@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>АЛМАЗ — 3D-конфигуратор входных дверей</title>
+    <meta name="description" content="3D-конфигуратор завода «Алмаз»: входные двери КАССИОПЕЯ стандарт, ДИНО 10 ТЕРМО, БЕРИЛЛ КВАДРО-3, ОСКАР, НИКО — размер, открывание, отделка снаружи и внутри, фурнитура, цены завода." />
+    <link rel="icon" href="assets/brand/almaz-logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.min.js",
+          "three/addons/": "./vendor/three/addons/",
+          "three/examples/jsm/": "./vendor/three/addons/",
+          "postprocessing": "./vendor/postprocessing.js",
+          "n8ao": "./vendor/N8AO.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <main id="stage">
+        <div id="viewport"></div>
+        <div id="loader"><div class="loader-inner"><img src="assets/brand/almaz-logo.svg" alt="АЛМАЗ" width="120" height="120" /><div class="loader-bar"><i></i></div><small>Завод входных дверей</small></div></div>
+        <header class="stage-head">
+          <a class="brand" href="https://almaz-nsk.com" target="_blank" rel="noopener">
+            <img src="assets/brand/almaz-logo.svg" alt="АЛМАЗ" width="44" height="44" />
+            <small>Завод входных<br />дверей · Новосибирск</small>
+          </a>
+          <nav class="models" id="models"></nav>
+        </header>
+        <div class="stage-foot">
+          <div class="seg" id="views"></div>
+          <div class="seg" id="open"></div>
+          <div class="seg" id="tod"></div>
+          <div class="seg">
+            <button id="shot" title="Сохранить изображение 2560 × 1440">
+              <svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>Снимок</span>
+            </button>
+          </div>
+        </div>
+        <div class="hint" id="hint">Вращайте — левая кнопка мыши, приближайте — колесо</div>
+      </main>
+      <aside id="panel">
+        <div class="panel-scroll">
+          <section class="project" id="project"></section>
+          <div id="options"></div>
+        </div>
+        <footer class="summary" id="summary"></footer>
+      </aside>
+    </div>
+    <dialog id="request">
+      <form method="dialog" class="req">
+        <h3>Ваш заказ</h3>
+        <div id="req-body"></div>
+        <div class="req-actions">
+          <button value="copy" id="req-copy" class="btn ghost">Скопировать заказ</button>
+          <a id="req-link" class="btn primary" target="_blank" rel="noopener">Оформить на almaz-nsk.com</a>
+        </div>
+        <button class="req-close" value="close" aria-label="Закрыть">×</button>
+      </form>
+    </dialog>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
